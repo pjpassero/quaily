@@ -226,3 +226,24 @@ var timer = setInterval(function () {
         clearInterval(timer);
     }
 }, 1000);
+
+var isMobile = {
+    Android: function () {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    any: function () {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera());
+    }
+};
+if (isMobile.iOS() || isMobile.Android()) {
+    document.body.style.width = "100%";
+};
