@@ -249,7 +249,7 @@ if (isMobile.iOS() || isMobile.Android()) {
     document.getElementsByTagName('body')[0].style.height = "100%";
     document.getElementsByTagName('body')[0].style.marginLeft = "0%";
     document.getElementsByTagName('body')[0].style.margin = "5%";
-    document.getElementById("titleHeader").style.fontSize = "5em";
+    document.getElementById("titleHeader").style.fontSize = "7em";
     document.getElementById("dailyQuestion").style.fontSize = "3em";
     document.getElementById("answeBTN").style.fontSize = "3em";
 };
