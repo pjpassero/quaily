@@ -245,5 +245,7 @@ var isMobile = {
     }
 };
 if (isMobile.iOS() || isMobile.Android()) {
-    document.body.style.width = "100%";
+    document.getElementsByTagName('body')[0].style.width = "100%";
+    document.getElementsByTagName('body')[0].style.marginLeft = "0%";
+
 };
