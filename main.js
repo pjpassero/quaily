@@ -247,10 +247,9 @@ var isMobile = {
 if (isMobile.iOS() || isMobile.Android()) {
     document.getElementsByTagName('body')[0].style.width = "90%";
     document.getElementsByTagName('body')[0].style.height = "100%";
-
     document.getElementsByTagName('body')[0].style.marginLeft = "0%";
     document.getElementsByTagName('body')[0].style.margin = "5%";
-    document.getElementById("contentModal").style.height = "70%";
-    document.getElementById("contentModal").style.width = "50%";
-
+    document.getElementById("titleHeader").style.fontSize = "5em";
+    document.getElementById("dailyQuestion").style.fontSize = "3em";
+    document.getElementById("answeBTN").style.fontSize = "3em";
 };
