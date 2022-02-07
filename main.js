@@ -110,40 +110,35 @@ var answers = [
     "Detroit",
     ""
 ]
-console.log(answers.length);
 var today = new Date().setHours(0, 0, 0, 0);
 var startDate = new Date(2022, 1, 1, 0, 0, 0, 0);
 var questionElement = document.getElementById("dailyQuestion");
 var userData = {
     "streak": 0,
-    "attempts": 0
+    "attempts": 0,
+    "lastTimePlay": new Date()
 };
 function bodyOnload() {
 
     userData = {
-        "streaK": returnUserStreak(),
-        "attempts": returnUserAttempts()
+        "streak": returnUserStreak(),
+        "attempts": returnUserAttempts(),
+        "lastTimePlay": getLastTimePlay()
     };
-
-    return true;
-
-}
-
-//start the game here. Load all functions after initalization
-function startGame() {
-
-
-
+    dailyPuzzle()
 
 }
-
-
+//generate an index for the arrays based on today's date
 function generateIndex() {
     return (Math.abs(startDate - today) / 864e5) - 5;
 }
 
 function dailyPuzzle() {
     questionElement.innerHTML = questions[generateIndex()];
+
+    if (userData['lastTimePlay'] == today) {
+        openModal(true);
+    }
 }
 
 function returnUserStreak() {
@@ -155,7 +150,20 @@ function returnUserStreak() {
     }
     return userStreak;
 }
+function setUserStreak() {
+    localStorage.setItem("streak", parseInt(localStorage.getItem("streak")) + 1);
+    localStorage.setItem("lastTimePlay", today);
+}
+function returnUserAttempts() {
+    if (localStorage.getItem("attempts") == null) {
+        localStorage.setItem("attempts", 0);
+    }
+    return localStorage.getItem("attempts");
+}
+function getLastTimePlay() {
+    return localStorage.getItem("lastTimePlay");
 
+}
 function guess() {
     var textBoxValue = document.getElementById("theanswer").value.toLowerCase();
     var solution = answers[generateIndex()].toLowerCase();
@@ -167,8 +175,8 @@ function guess() {
     };
     var guessElementString = "";
     if (solution == textBoxValue) {
-        document.getElementById("soultionShow").innerHTML = capitalizeFirstLetter(solution) + "!";
-        openModal();
+        setUserStreak();
+        openModal(true);
     } else {
 
         for (var i = 0; i <= solution.length; i++) {
@@ -196,8 +204,13 @@ function capitalizeFirstLetter(word) {
 function closeModal() {
     document.getElementById("statModal").style.display = "none";
 }
-function openModal() {
+function openModal(showSolution) {
+    if (showSolution) {
+        document.getElementById("soultionShow").innerHTML = capitalizeFirstLetter(answers[generateIndex()]) + "!";
+    }
     document.getElementById("statModal").style.display = "block";
+
+
 }
 document.querySelector('#theanswer').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
@@ -206,7 +219,7 @@ document.querySelector('#theanswer').addEventListener('keypress', function (e) {
 });
 
 document.querySelector("#statsClicker").addEventListener("click", function () {
-    openModal();
+    openModal(false);
 });
 
 var timer = setInterval(function () {
@@ -226,6 +239,7 @@ var timer = setInterval(function () {
         clearInterval(timer);
     }
 }, 1000);
+
 
 var isMobile = {
     Android: function () {
@@ -249,7 +263,10 @@ if (isMobile.iOS() || isMobile.Android()) {
     document.getElementsByTagName('body')[0].style.height = "100%";
     document.getElementsByTagName('body')[0].style.marginLeft = "0%";
     document.getElementsByTagName('body')[0].style.margin = "5%";
-    document.getElementById("titleHeader").style.fontSize = "7em";
+    document.getElementById("titleHeader").style.fontSize = "5em";
     document.getElementById("dailyQuestion").style.fontSize = "3em";
     document.getElementById("answeBTN").style.fontSize = "3em";
+    document.getElementsByName("contentModal")[0].style.width = '90%';
+    document.getElementsByName("contentModal")[0].style.margin = "5%";
+    document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
 };
