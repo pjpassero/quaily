@@ -164,9 +164,17 @@ function getLastTimePlay() {
     return localStorage.getItem("lastTimePlay");
 
 }
+
+
+
+
 function guess() {
     var textBoxValue = document.getElementById("theanswer").value.toLowerCase();
     var solution = answers[generateIndex()].toLowerCase();
+    var guessAttemptLeft = solution.length(); 
+
+    if(guessAttemptLeft)
+
     var isInSolution = function (letter) {
         if (solution.indexOf(letter) > -1) {
             return true;
