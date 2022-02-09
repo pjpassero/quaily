@@ -97,6 +97,7 @@ body {
     margin: 5%;
     margin-left: 25%;
     font-size: 2em;
+    text-align:center;
     border-style: solid;
     border-color: var(--dark-green);
     border-radius: 0.20em;
