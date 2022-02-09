@@ -164,15 +164,9 @@ function getLastTimePlay() {
     return localStorage.getItem("lastTimePlay");
 
 }
-
-
-
-
 function guess() {
     var textBoxValue = document.getElementById("theanswer").value.toLowerCase();
     var solution = answers[generateIndex()].toLowerCase();
-    
-
     var isInSolution = function (letter) {
         if (solution.indexOf(letter) > -1) {
             return true;
@@ -275,4 +269,5 @@ if (isMobile.iOS() || isMobile.Android()) {
     document.getElementsByName("contentModal")[0].style.width = '90%';
     document.getElementsByName("contentModal")[0].style.margin = "5%";
     document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
+    document.getElementsByClassName("answerBtn")[0].style.fontSize = "4em";
 };
