@@ -97,7 +97,6 @@ body {
     margin: 5%;
     margin-left: 25%;
     font-size: 2em;
-    text-align:center;
     border-style: solid;
     border-color: var(--dark-green);
     border-radius: 0.20em;
@@ -142,6 +141,23 @@ body {
 #soultionShow {
     font-size:2.5em;
     color:var(--steel-teal);
+}
+.letterWordContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.letterElement {
+    font-size:2.5em;
+    width:1em;
+    margin:2.5%;
+    border-style:solid;
+    border-width: 2.5%;
+    border-color:black;
+    border-top:0;
+    border-left:0;
+    border-right:0;
+    color:green;
 }
 @keyframes buttonHover {
     100% {

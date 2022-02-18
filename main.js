@@ -135,6 +135,7 @@ function generateIndex() {
 
 function dailyPuzzle() {
     questionElement.innerHTML = questions[generateIndex()];
+    displayLettersOfWord(answers[generateIndex()].length);
 
     if (userData['lastTimePlay'] == today) {
         openModal(true);
@@ -182,6 +183,8 @@ function guess() {
         for (var i = 0; i <= solution.length; i++) {
             if (solution.charAt(i) == textBoxValue.charAt(i)) {
                 guessElementString += `<span class="guessString" style="color:green;">${textBoxValue.charAt(i)}</span>`;
+                var letter = textBoxValue.charAt(i);
+                addLetterToAnswerKey(letter, i);
             } else if (isInSolution(textBoxValue[i])) {
                 guessElementString += `<span class="guessString" style="color:yellow;">${textBoxValue.charAt(i)}</span>`;
             } else {
@@ -222,6 +225,25 @@ document.querySelector("#statsClicker").addEventListener("click", function () {
     openModal(false);
 });
 
+function addLetterToAnswerKey(letter, id) {
+    letter = letter.toUpperCase();
+    document.getElementById(`letterbox${id}`).innerHTML = letter;
+}
+
+function displayLettersOfWord(wordCount) {
+    var x = 0; 
+    while(x < wordCount) {
+        var element = document.createElement("div");
+        element.innerHTML = "";
+        element.className = "letterElement";
+        element.setAttribute("id", `letterbox${x}`);
+        document.getElementsByClassName("letterWordContainer")[0].appendChild(element);
+        x++;
+    }
+}
+
+
+//Imported Functions
 var timer = setInterval(function () {
     var timeNow = new Date();
     var nextQuaily = new Date();
@@ -263,11 +285,11 @@ if (isMobile.iOS() || isMobile.Android()) {
     document.getElementsByTagName('body')[0].style.height = "100%";
     document.getElementsByTagName('body')[0].style.marginLeft = "0%";
     document.getElementsByTagName('body')[0].style.margin = "5%";
-    document.getElementById("titleHeader").style.fontSize = "4em";
+    document.getElementById("titleHeader").style.fontSize = "5em";
     document.getElementById("dailyQuestion").style.fontSize = "3em";
     document.getElementById("answeBTN").style.fontSize = "3em";
     document.getElementsByName("contentModal")[0].style.width = '90%';
     document.getElementsByName("contentModal")[0].style.margin = "5%";
     document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
-    document.getElementsByClassName("answerBtn")[0].style.fontSize = "2.5em";
+    document.getElementsByClassName("answerBtn")[0].style.fontSize = "4em";
 };
