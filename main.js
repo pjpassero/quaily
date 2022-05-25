@@ -111,7 +111,7 @@ var answers = [
     ""
 ]
 var today = new Date().setHours(0, 0, 0, 0);
-var startDate = new Date(2022, 1, 1, 0, 0, 0, 0);
+var startDate = new Date(2022, 4, 1, 0, 0, 0, 0);
 var questionElement = document.getElementById("dailyQuestion");
 var userData = {
     "streak": 0,
