@@ -185,12 +185,12 @@ function guess() {
         openModal(true);
     } else {
 
-        for (var i = 0; i <= solution.length; i++) {
+        for (var i = 0; i < solution.length; i++) {
             if (solution.charAt(i) == textBoxValue.charAt(i)) {
                 guessElementString += `<span class="guessString" style="color:green;">${textBoxValue.charAt(i)}</span>`;
                 var letter = textBoxValue.charAt(i);
                 console.log(letter);
-                addLetterToAnswerKey(letter, i);
+                addLetterToAnswerKey(letter, i, );
             } else if (isInSolution(textBoxValue[i])) {
                 guessElementString += `<span class="guessString" style="color:yellow;">${textBoxValue.charAt(i)}</span>`;
             } else {
