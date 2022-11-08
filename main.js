@@ -111,13 +111,18 @@ var answers = [
     ""
 ]
 var today = new Date().setHours(0, 0, 0, 0);
+<<<<<<< HEAD
 var startDate = new Date(2022, 10, 1, 0, 0, 0, 0);
+=======
+var startDate = new Date(2022, 9, 1, 0, 0, 0, 0);
+>>>>>>> b6d19489e21ca8347b5ff8baf09ebdc3b337797a
 var questionElement = document.getElementById("dailyQuestion");
 var userData = {
     "streak": 0,
     "attempts": 0,
     "lastTimePlay": new Date()
 };
+//Hello
 function bodyOnload() {
 
     userData = {
