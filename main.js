@@ -235,6 +235,7 @@ document.querySelector("#statsClicker").addEventListener("click", function() {
 });
 
 function addLetterToAnswerKey(letter, id) {
+    console.log(letter, id);
     letter = letter.toUpperCase();
     document.getElementById(`letterbox${id}`).innerHTML = letter;
 }
