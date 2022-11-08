@@ -111,7 +111,7 @@ var answers = [
     ""
 ]
 var today = new Date().setHours(0, 0, 0, 0);
-var startDate = new Date(2022, 10, 1, 0, 0, 0, 0);
+var startDate = new Date(2022, 11, 1, 0, 0, 0, 0);
 var questionElement = document.getElementById("dailyQuestion");
 var userData = {
     "streak": 0,
@@ -131,12 +131,12 @@ function bodyOnload() {
 }
 //generate an index for the arrays based on today's date
 function generateIndex() {
-    return (Math.abs(startDate - today) / 864e5) - 5;
+    return Math.trunc((Math.abs(startDate - today) / 864e5) - 5);
 }
 
 function dailyPuzzle() {
     questionElement.innerHTML = questions[generateIndex()];
-    displayLettersOfWord(answers[generateIndex()].length());
+    displayLettersOfWord(answers[generateIndex()].length);
 
     if (userData['lastTimePlay'] == today) {
         openModal(true);
