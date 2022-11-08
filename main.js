@@ -111,18 +111,14 @@ var answers = [
     ""
 ]
 var today = new Date().setHours(0, 0, 0, 0);
-<<<<<<< HEAD
 var startDate = new Date(2022, 10, 1, 0, 0, 0, 0);
-=======
-var startDate = new Date(2022, 9, 1, 0, 0, 0, 0);
->>>>>>> b6d19489e21ca8347b5ff8baf09ebdc3b337797a
 var questionElement = document.getElementById("dailyQuestion");
 var userData = {
     "streak": 0,
     "attempts": 0,
     "lastTimePlay": new Date()
 };
-//Hello
+
 function bodyOnload() {
 
     userData = {
@@ -156,24 +152,28 @@ function returnUserStreak() {
     }
     return userStreak;
 }
+
 function setUserStreak() {
     localStorage.setItem("streak", parseInt(localStorage.getItem("streak")) + 1);
     localStorage.setItem("lastTimePlay", today);
 }
+
 function returnUserAttempts() {
     if (localStorage.getItem("attempts") == null) {
         localStorage.setItem("attempts", 0);
     }
     return localStorage.getItem("attempts");
 }
+
 function getLastTimePlay() {
     return localStorage.getItem("lastTimePlay");
 
 }
+
 function guess() {
     var textBoxValue = document.getElementById("theanswer").value.toLowerCase();
     var solution = answers[generateIndex()].toLowerCase();
-    var isInSolution = function (letter) {
+    var isInSolution = function(letter) {
         if (solution.indexOf(letter) > -1) {
             return true;
         }
@@ -203,15 +203,19 @@ function guess() {
     }
 
 }
+
 function clearTextBox() {
     document.getElementById("theanswer").value = "";
 }
+
 function capitalizeFirstLetter(word) {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
+
 function closeModal() {
     document.getElementById("statModal").style.display = "none";
 }
+
 function openModal(showSolution) {
     if (showSolution) {
         document.getElementById("soultionShow").innerHTML = capitalizeFirstLetter(answers[generateIndex()]) + "!";
@@ -220,13 +224,13 @@ function openModal(showSolution) {
 
 
 }
-document.querySelector('#theanswer').addEventListener('keypress', function (e) {
+document.querySelector('#theanswer').addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
         guess();
     }
 });
 
-document.querySelector("#statsClicker").addEventListener("click", function () {
+document.querySelector("#statsClicker").addEventListener("click", function() {
     openModal(false);
 });
 
@@ -236,8 +240,8 @@ function addLetterToAnswerKey(letter, id) {
 }
 
 function displayLettersOfWord(wordCount) {
-    var x = 0; 
-    while(x < wordCount) {
+    var x = 0;
+    while (x < wordCount) {
         var element = document.createElement("div");
         element.innerHTML = "";
         element.className = "letterElement";
@@ -249,7 +253,7 @@ function displayLettersOfWord(wordCount) {
 
 
 //Imported Functions
-var timer = setInterval(function () {
+var timer = setInterval(function() {
     var timeNow = new Date();
     var nextQuaily = new Date();
     nextQuaily.setDate(timeNow.getDate() + 1);
@@ -269,19 +273,19 @@ var timer = setInterval(function () {
 
 
 var isMobile = {
-    Android: function () {
+    Android: function() {
         return navigator.userAgent.match(/Android/i);
     },
-    BlackBerry: function () {
+    BlackBerry: function() {
         return navigator.userAgent.match(/BlackBerry/i);
     },
-    iOS: function () {
+    iOS: function() {
         return navigator.userAgent.match(/iPhone|iPad|iPod/i);
     },
-    Opera: function () {
+    Opera: function() {
         return navigator.userAgent.match(/Opera Mini/i);
     },
-    any: function () {
+    any: function() {
         return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera());
     }
 };
@@ -297,4 +301,14 @@ if (isMobile.iOS() || isMobile.Android()) {
     document.getElementsByName("contentModal")[0].style.margin = "5%";
     document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
     document.getElementsByClassName("answerBtn")[0].style.fontSize = "2.5em";
+};
+document.getElementsByTagName('body')[0].style.marginLeft = "0%";
+document.getElementsByTagName('body')[0].style.margin = "5%";
+document.getElementById("titleHeader").style.fontSize = "4em";
+document.getElementById("dailyQuestion").style.fontSize = "3em";
+document.getElementById("answeBTN").style.fontSize = "3em";
+document.getElementsByName("contentModal")[0].style.width = '90%';
+document.getElementsByName("contentModal")[0].style.margin = "5%";
+document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
+document.getElementsByClassName("answerBtn")[0].style.fontSize = "2.5em";
 };
