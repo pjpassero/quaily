@@ -189,6 +189,7 @@ function guess() {
             if (solution.charAt(i) == textBoxValue.charAt(i)) {
                 guessElementString += `<span class="guessString" style="color:green;">${textBoxValue.charAt(i)}</span>`;
                 var letter = textBoxValue.charAt(i);
+                console.log(letter);
                 addLetterToAnswerKey(letter, i);
             } else if (isInSolution(textBoxValue[i])) {
                 guessElementString += `<span class="guessString" style="color:yellow;">${textBoxValue.charAt(i)}</span>`;
