@@ -302,6 +302,7 @@ if (isMobile.iOS() || isMobile.Android()) {
     document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
     document.getElementsByClassName("answerBtn")[0].style.fontSize = "2.5em";
 };
+
 /*
  else {
     document.getElementsByTagName('body')[0].style.marginLeft = "0%";
