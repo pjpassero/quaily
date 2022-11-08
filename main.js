@@ -301,14 +301,14 @@ if (isMobile.iOS() || isMobile.Android()) {
     document.getElementsByName("contentModal")[0].style.margin = "5%";
     document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
     document.getElementsByClassName("answerBtn")[0].style.fontSize = "2.5em";
-};
-document.getElementsByTagName('body')[0].style.marginLeft = "0%";
-document.getElementsByTagName('body')[0].style.margin = "5%";
-document.getElementById("titleHeader").style.fontSize = "4em";
-document.getElementById("dailyQuestion").style.fontSize = "3em";
-document.getElementById("answeBTN").style.fontSize = "3em";
-document.getElementsByName("contentModal")[0].style.width = '90%';
-document.getElementsByName("contentModal")[0].style.margin = "5%";
-document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
-document.getElementsByClassName("answerBtn")[0].style.fontSize = "2.5em";
+} else {
+    document.getElementsByTagName('body')[0].style.marginLeft = "0%";
+    document.getElementsByTagName('body')[0].style.margin = "5%";
+    document.getElementById("titleHeader").style.fontSize = "4em";
+    document.getElementById("dailyQuestion").style.fontSize = "3em";
+    document.getElementById("answeBTN").style.fontSize = "3em";
+    document.getElementsByName("contentModal")[0].style.width = '90%';
+    document.getElementsByName("contentModal")[0].style.margin = "5%";
+    document.getElementsByClassName("modalHeader")[0].style.fontSize = "3.5em";
+    document.getElementsByClassName("answerBtn")[0].style.fontSize = "2.5em";
 };
