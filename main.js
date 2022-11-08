@@ -126,7 +126,7 @@ function bodyOnload() {
         "attempts": returnUserAttempts(),
         "lastTimePlay": getLastTimePlay()
     };
-    dailyPuzzle()
+    dailyPuzzle();
 
 }
 //generate an index for the arrays based on today's date
