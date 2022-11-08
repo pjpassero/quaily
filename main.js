@@ -136,7 +136,7 @@ function generateIndex() {
 
 function dailyPuzzle() {
     questionElement.innerHTML = questions[generateIndex()];
-    displayLettersOfWord(answers[generateIndex()].length);
+    displayLettersOfWord(answers[generateIndex()].length());
 
     if (userData['lastTimePlay'] == today) {
         openModal(true);
